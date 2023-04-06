@@ -1,11 +1,12 @@
 .App {
   height: 100vh;
   /* height: -webkit-fill-available; */
-  background-color: #343541;
+  background-color: #E8A0BF;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: auto;
+  
 }
 
 /* --- Header style --- */
@@ -16,7 +17,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: #343541;
+  background-color: #BA90C6;
   color: white;
   justify-content: center;
 
@@ -71,7 +72,7 @@
 }
 
 .openai-bubble-container {
-  background-color: #444654;
+  background-color: #FDF4F5;
 }
 
 .profile-picture {
@@ -89,7 +90,7 @@
 }
 
 .user-bubble {
-  background-color: #343541;
+  background-color: #E8A0BF;
   color: #ececf1;
   width: 75%;
 }
@@ -108,7 +109,7 @@
   width: 100%;
   padding-top: 20px;
   padding-bottom: 5px;
-  background-color: #343541;
+  background-color: #C0DBEA;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -123,7 +124,7 @@
 
 .input-area input {
   width: calc(60% - 2em);
-  background-color: #40414F;
+  background-color: #BA90C6;
   border: none;
   color: #ececf1;
   font-size: 1em;
@@ -131,17 +132,36 @@
   border-radius: 5px;
 }
 
-.input-area button {
-background: transparent;
-    border: 0px;
-    padding: 0px;
-    margin: 0px;
-    font-size: 1em;
-}
 
 .input-area i {
   color: #ececf1;
   margin: 0.5em;
   font-size: 1.5em;
   cursor: pointer;
+}
+
+.input-area button{
+  font-family: Arial, Helvetica, sans-serif;
+  width: 10%;
+  height: 100%;
+  margin-left: 15px;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 17px;
+  border: none;
+  position: relative;
+  background: #100720;
+  transition: 0.1s;
+  border-radius: 5px;
+}
+
+
+.input-area button:hover {
+  background: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
+}
+
+button:active {
+  transform: scale(0.9) rotate(3deg);
+  background: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
+  transition: 0.5s;
 }
