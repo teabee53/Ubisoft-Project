@@ -13,12 +13,8 @@ function App() {
   const [imageUrl, setImageUrl] = useState(
     "https://oaidalleapiprodscus.blob.core.windows.net/private/org-NpSEZ2OrlvyZf7TAKLgRD0UL/user-Tv2mvpJS18PUGwlcFXQkfm7c/img-t7W3CVXWOyfCIbu6TbrgAruj.png?st=2023-04-06T10%3A53%3A38Z&se=2023-04-06T12%3A53%3A38Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-04-05T20%3A47%3A22Z&ske=2023-04-06T20%3A47%3A22Z&sks=b&skv=2021-08-06&sig=xs50WZ6XIte9dD/Yk3DNbzXRBQbSjyz9oSiyYu7Fx0c%3D");
   // the chatData is to keep the history of our chat + the newest response. The reason why the newest reponse is separate? wanted to give it a special 'types' effect
-<<<<<<< HEAD
-  const [chatData, setChatData] = useState({ "history": [{ "type": "openai", "data": "Type whatever you want and I will try generate an image based on it!" }], "response": "" });
-=======
   const [chatData, setChatData] = useState({ "history": [{ "type": "openai", "data": "Type whatever you want and I will try to generate an image based on it!" }], "response": "" });
   
->>>>>>> main
   const configuration = new Configuration({
     apiKey: process.env.REACT_APP_OPENAI_API_KEY
   });
