@@ -17,7 +17,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: #BA90C6;
+  background-color: #170f1a57;
   color: white;
   justify-content: center;
 
@@ -72,7 +72,7 @@
 }
 
 .openai-bubble-container {
-  background-color: #FDF4F5;
+  background-color: #bfb9ba17;
 }
 
 .profile-picture {
@@ -90,7 +90,7 @@
 }
 
 .user-bubble {
-  background-color: #E8A0BF;
+  background-color: #ff0000;
   color: #ececf1;
   width: 75%;
 }
@@ -109,7 +109,7 @@
   width: 100%;
   padding-top: 20px;
   padding-bottom: 5px;
-  background-color: #C0DBEA;
+  background-color: #161820;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -124,9 +124,9 @@
 
 .input-area input {
   width: calc(60% - 2em);
-  background-color: #BA90C6;
+  background-color: #323a46;
   border: none;
-  color: #ececf1;
+  color: #e6e6e6;
   font-size: 1em;
   padding: 1em;
   border-radius: 5px;
@@ -134,7 +134,7 @@
 
 
 .input-area i {
-  color: #ececf1;
+  color: #e0e0e47d;
   margin: 0.5em;
   font-size: 1.5em;
   cursor: pointer;
