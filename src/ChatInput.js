@@ -1,6 +1,8 @@
 function ChatInput({ handleChange, handleClick }) {
     function handleSubmit(e) {
         e.preventDefault();
+        
+        e.target.reset();
     }
 
     return (
