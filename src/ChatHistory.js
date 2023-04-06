@@ -1,7 +1,8 @@
-// import TypedReply from "./TypedReply";
+import TypedReply from "./TypedReply";
 
 function ChatHistory({ chatHistory , response}) {
     return (
+        
         <div className="chat">
             {chatHistory.map((item, index) =>
                 <div className={`chat-bubble-container ${item.type}-bubble-container`} key={index}>
@@ -22,7 +23,7 @@ function ChatHistory({ chatHistory , response}) {
                 </div>  
             }
         </div>
-    )
+    );
 }
 
 export default ChatHistory;

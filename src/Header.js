@@ -1,8 +1,8 @@
 function Header() {
     return (
         <div className="header">
-            <h1>Alexa's Playground</h1>
-            <p>Let's have some fun</p>
+            <h1>AiPainter</h1>
+            <p>Every prompt can be an image.</p>
         </div>
     )
 }
