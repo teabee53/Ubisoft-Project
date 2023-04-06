@@ -40,8 +40,9 @@ function App() {
       });
       setImageUrl(response.data.data[0].url);
       // setImageUrl(response.data.url);
-      newChatData.response = <img src={response.data.data[0].url} alt="Generated Image" />;
-      newChatData.history.push({ type: "openai-image", data: response.data.data[0].url });
+      newChatData.response = "Here is your image. Hope you like it!";
+      //newChatData.response = <img src={response.data.data[0].url} alt="Generated Image" />;
+      newChatData.history.push({ type: "openai", data: <img src={response.data.data[0].url}/> });
     } catch (error) {
       console.error(error);
       newChatData.response = "Sorry, there was an error generating the image.";
