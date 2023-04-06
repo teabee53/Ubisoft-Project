@@ -8,7 +8,6 @@ import { Configuration, OpenAIApi } from "openai";
  
 
 function App() {
-  var locked = false;
   // the prompt will be updated at each key stroke, from the input area and bubble it up to this component, to be used in the openAI request
   const [prompt, setPrompt] = useState("");
   const [imageUrl, setImageUrl] = useState(
@@ -23,38 +22,33 @@ function App() {
   const openai = new OpenAIApi(configuration);
 
   const generateResponse = async () => {
-    if(locked === false)
-    {
-      locked = true;
-      //setTimeout(locked = false, 6000);
-      if (prompt === "") return false;
-    
-      let newChatData = Object.assign({}, chatData);
-      if (chatData.response !== "") {
-        newChatData.history.push({ type: "openai", data: chatData.response });
-      }
-      newChatData.history.push({ type: "user", data: prompt });
-    
-      // let openAIPrompt = "Generate an image based on this prompt:" + prompt;
-      try {
-        // const openaiInstance = new OpenAIApi(process.env.REACT_APP_OPENAI_API_KEY);
-        const response = await openai.createImage({
-          prompt: prompt,
-          n: 1,
-          size: '256x256',
-        });
-        setImageUrl(response.data.data[0].url);
-        // setImageUrl(response.data.url);
-        newChatData.response = "Here is your image. Hope you like it!";
-        //newChatData.response = <img src={response.data.data[0].url} alt="Generated Image" />;
-        newChatData.history.push({ type: "openai", data: <img src={response.data.data[0].url}/> });
-      } catch (error) {
-        console.error(error);
-        newChatData.response = "Sorry, there was an error generating the image.";
-      }
-      setChatData(newChatData);
+    if (prompt === "") return false;
+  
+    let newChatData = Object.assign({}, chatData);
+    if (chatData.response !== "") {
+      newChatData.history.push({ type: "openai", data: chatData.response });
     }
-  };
+    newChatData.history.push({ type: "user", data: prompt });
+  
+    // let openAIPrompt = "Generate an image based on this prompt:" + prompt;
+    try {
+      // const openaiInstance = new OpenAIApi(process.env.REACT_APP_OPENAI_API_KEY);
+      const response = await openai.createImage({
+        prompt: prompt,
+        n: 1,
+        size: '256x256',
+      });
+      setImageUrl(response.data.data[0].url);
+      // setImageUrl(response.data.url);
+      newChatData.response = "Here is your image. Hope you like it!";
+      //newChatData.response = <img src={response.data.data[0].url} alt="Generated Image" />;
+      newChatData.history.push({ type: "openai", data: <img src={response.data.data[0].url}/> });
+    } catch (error) {
+      console.error(error);
+      newChatData.response = "Sorry, there was an error generating the image.";
+    }
+    setChatData(newChatData);
+   };
  
   return (
     <div className="App">
