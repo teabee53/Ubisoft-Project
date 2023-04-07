@@ -20,8 +20,13 @@ function App() {
     
 
   const generateResponse = async () => {
-    if (prompt === "") return;
-  
+    if (prompt === "") {
+      setChatData({
+        history: [...chatData.history],
+        response: "Introdu mai întâi un prompt"
+      });
+      return false;
+    }
     let newChatData = Object.assign({}, chatData);
     if (chatData.response !== "") {
       newChatData.history.push({ type: "openai", data: chatData.response });
@@ -29,9 +34,8 @@ function App() {
     newChatData.history.push({ type: "user", data: prompt });
     setChatData(newChatData);
   
-    // let openAIPrompt = "Generate an image based on this prompt:" + prompt;
     try {
-      // const openaiInstance = new OpenAIApi(process.env.REACT_APP_OPENAI_API_KEY);
+      //this is where the programme calls for the api function to generate an image
       const response = await openai.createImage({
         prompt: prompt,
         n: 1,
@@ -39,12 +43,12 @@ function App() {
       });
       // setImageUrl(response.data.url);
       newChatData.response = "Here is your image. Hope you like it!";
-      //newChatData.response = <img src={response.data.data[0].url} alt="Generated Image" />;
       newChatData.history.push({ type: "openai", data: <img src={response.data.data[0].url}/> });
     } catch (error) {
       console.error(error);
       newChatData.response = "Sorry, there was an error generating the image.";
     }
+    setPrompt("");
     setChatData(newChatData);
    };
  
@@ -53,7 +57,6 @@ function App() {
       <Header/>
       <div className='chat-container'>
         <ChatHistory chatHistory={chatData.history} response={chatData.response} />
-
         <ChatInput handleChange={setPrompt} handleClick={generateResponse}></ChatInput>
       </div>
     </div>
