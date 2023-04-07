@@ -33,13 +33,17 @@ function App() {
     }
     newChatData.history.push({ type: "user", data: prompt });
     setChatData(newChatData);
-  
+    //  {{isLoading && <LoadingScreen />} }
+    //                  { {isOverlayVisible && (
+    //     <div className="overlay" onClick={() => setIsOverlayVisible(false)} />)}}
+
+
     try {
       //this is where the programme calls for the api function to generate an image
       const response = await openai.createImage({
         prompt: prompt,
         n: 1,
-        size: '256x256',
+        size: '512x512',
       });
       // setImageUrl(response.data.url);
       newChatData.response = "Here is your image. Hope you like it!";
@@ -58,6 +62,7 @@ function App() {
       <div className='chat-container'>
         <ChatHistory chatHistory={chatData.history} response={chatData.response} />
         <ChatInput handleChange={setPrompt} handleClick={generateResponse}></ChatInput>
+
       </div>
     </div>
   );
